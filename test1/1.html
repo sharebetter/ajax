@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<button id="btn">按钮</button>
+<script src="./jquery-1.11.0.js"></script>
+<script>
+
+    $(function(){
+        $.ajax(
+                {url: "http://localhost:8011/test2/index2.php", 
+                 type: 'get',
+                // 此句打开即可进行跨域请求         
+                  dataType: 'jsonp', // 请求方式为jsonp 
+
+                 jsonpCallback: "onBack", // 自定义回调函数名
+
+                 success: function(data){
+                     console.info(data)
+                    }
+                }); 
+    });
+</script>
+</body>
+</html>

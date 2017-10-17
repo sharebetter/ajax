@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<button id="btn">按钮</button>
+<script src="./jquery-1.11.0.js"></script>
+<script>
+	$.ajax({
+		 url: 'http://localhost:8011/test2/index2.php?callback=myFunction',
+		 type: 'get', 
+         // 将此句注释 或改成dataType: 'json',则无法跨域请求
+		 // dataType: 'jsonp', // 请求方式为jsonp 
+		 // 这种情况下要在请求文件加 header('Access-Control-Allow-Origin:*') 即可
+		 // jsonpCallback: "onBack", // 自定义回调函数名
+		 data: {},
+		 success: function(json){
+            console.log(json)
+           },
+	     error: function(){
+	        alert('fail');
+	     }
+	});
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<button id="btn">按钮</button>
+<script src="./jquery-1.11.0.js"></script>
+<script>
+
+    $(function(){
+        $.ajax({
+           type: "GET",
+           async: false,
+           url: "http://localhost:8011/test2/index2.php",
+           // dataType: 'jsonp', // 请求方式为jsonp 
+         // 此句注释情况下要在请求文件加 header('Access-Control-Allow-Origin:*') 否则无法跨域
+           dataType: "jsonp",
+           jsonp: "callback",//传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(一般默认为:callback)
+           jsonpCallback:"onBack",//自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名，也可以写"?"，jQuery会自动为你处理数据
+           success: function(json){
+               console.log(json)
+           },
+           error: function(){
+               alert('fail');
+           }
+         });
+    });
+</script>
+</body>
+</html>
