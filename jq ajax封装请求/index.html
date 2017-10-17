@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<button id="but">按钮</button>
+<script src='./js/jquery.min.js' type="text/javascript"></script>
+<script src='./ajax.js' type="text/javascript"></script>
+
+<script>
+$('#but').click(function(){
+
+	// console.log(user,pass)
+    mJson={
+    	url:"ajaxlogin.php",
+    	dataType: "json",
+    	data: { "user":'gg',"password":'ss'},
+    	type: "post"
+    }
+
+    ajax(mJson);
+})
+
+
+</script>
+</body>
+</html>
